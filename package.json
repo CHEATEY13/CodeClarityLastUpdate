@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Premium web application for code analysis, debugging, and translation",
   "main": "server/server.js",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
+    "build": "echo 'No build step required - static files served directly'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
