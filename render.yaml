@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: codeclarity
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        fromService:
+          type: web
+          name: codeclarity
+          property: port
+    # Environment variables that need to be set in Render dashboard:
+    # - OPENAI_API_KEY (your OpenAI API key)
+    # - GEMINI_API_KEY (your Google Gemini API key) 
+    # - JWT_SECRET (a secure random string for JWT signing)
+    # - FRONTEND_URL (will be your Render app URL, e.g., https://your-app.onrender.com)
